@@ -3,7 +3,6 @@ import {Text, View, StyleSheet, TextInput, Button} from 'react-native';
 
 import {useForm, Controller} from 'react-hook-form';
 import {sha256} from 'js-sha256';
-import DocumentPicker from 'react-native-document-picker';
 
 export function DetailsScreen({navigation, route}) {
   const {handleSubmit, control, reset} = useForm({
@@ -30,9 +29,8 @@ export function DetailsScreen({navigation, route}) {
   }
 
   async function onSubmit(data) {
-    const FolderPath = (await DocumentPicker.pickDirectory()).uri;
     const UserID = Generate_UserID(data);
-    navigation.navigate('Game', {data, UserID, FolderPath});
+    navigation.navigate('Game', {data, UserID});
   }
 
   return (

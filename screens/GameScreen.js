@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, Button, StyleSheet} from 'react-native';
+import {Text, View, Image, StyleSheet} from 'react-native';
 import {DraxProvider, DraxView} from 'react-native-drax';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
@@ -14,17 +14,17 @@ export function GameScreen({navigation, route}) {
   const [image3, setImage3] = React.useState([]);
   const [image4, setImage4] = React.useState([]);
 
-  let red_mp3 = SoundPlayer.loadSoundFile('red', 'mp3');
-  let green_mp3 = SoundPlayer.loadSoundFile('green', 'mp3');
-  let blue_mp3 = SoundPlayer.loadSoundFile('blue', 'mp3');
-  let yellow_mp3 = SoundPlayer.loadSoundFile('yellow', 'mp3');
-
   return (
     <GestureHandlerRootView style={{flex: 1}}>
+      <Image
+        style={{width: '100%', height: 200, resizeMode: 'contain'}}
+        source={require('../assets/images/1.jpg')}
+      />
       <DraxProvider>
         <View style={styles.container}>
           <View style={styles.allImages}>
             <View style={styles.imageContainer}>
+              <Image source={image1} resizeMode="contain" />
               <DraxView
                 style={[
                   styles.centeredContent,
@@ -133,7 +133,8 @@ export function GameScreen({navigation, route}) {
               dragReleasedStyle={styles.dragging}
               hoverDraggingStyle={styles.hoverDragging}
               dragPayload={'R'}
-              longPressDelay={0}>
+              longPressDelay={0}
+              onDragStart={() => SoundPlayer.playSoundFile('red', 'mp3')}>
               <Text>RED</Text>
             </DraxView>
             <DraxView
@@ -146,7 +147,8 @@ export function GameScreen({navigation, route}) {
               dragReleasedStyle={styles.dragging}
               hoverDraggingStyle={styles.hoverDragging}
               dragPayload={'G'}
-              longPressDelay={0}>
+              longPressDelay={0}
+              onDragStart={() => SoundPlayer.playSoundFile('green', 'mp3')}>
               <Text>GREEN</Text>
             </DraxView>
             <DraxView
@@ -155,7 +157,8 @@ export function GameScreen({navigation, route}) {
               dragReleasedStyle={styles.dragging}
               hoverDraggingStyle={styles.hoverDragging}
               dragPayload={'B'}
-              longPressDelay={0}>
+              longPressDelay={0}
+              onDragStart={() => SoundPlayer.playSoundFile('blue', 'mp3')}>
               <Text>BLUE</Text>
             </DraxView>
             <DraxView
@@ -168,39 +171,10 @@ export function GameScreen({navigation, route}) {
               dragReleasedStyle={styles.dragging}
               hoverDraggingStyle={styles.hoverDragging}
               dragPayload={'Y'}
-              longPressDelay={0}>
+              longPressDelay={0}
+              onDragStart={() => SoundPlayer.playSoundFile('yellow', 'mp3')}>
               <Text>YELLOW</Text>
             </DraxView>
-          </View>
-          <View style={styles.Audiopalette}>
-            <View style={{width: '10%'}}>
-              <Button
-                title=""
-                color="#ffaaaa"
-                onPress={() => SoundPlayer.playSoundFile('red', 'mp3')}
-              />
-            </View>
-            <View style={{width: '10%'}}>
-              <Button
-                title=""
-                color="#aaffaa"
-                onPress={() => SoundPlayer.playSoundFile('green', 'mp3')}
-              />
-            </View>
-            <View style={{width: '10%'}}>
-              <Button
-                title=""
-                color="#aaaaff"
-                onPress={() => SoundPlayer.playSoundFile('blue', 'mp3')}
-              />
-            </View>
-            <View style={{width: '10%'}}>
-              <Button
-                title=""
-                color="#ffffaa"
-                onPress={() => SoundPlayer.playSoundFile('yellow', 'mp3')}
-              />
-            </View>
           </View>
         </View>
       </DraxProvider>
