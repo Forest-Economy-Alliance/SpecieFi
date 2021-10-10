@@ -34,6 +34,94 @@ export function GameScreen({navigation, route}) {
     10: require('../assets/images/10.jpg'),
     11: require('../assets/images/11.jpg'),
     12: require('../assets/images/12.jpg'),
+    13: require('../assets/images/13.jpg'),
+    14: require('../assets/images/14.jpg'),
+    15: require('../assets/images/15.jpg'),
+    16: require('../assets/images/16.jpg'),
+    17: require('../assets/images/17.jpg'),
+    18: require('../assets/images/18.jpg'),
+    19: require('../assets/images/19.jpg'),
+    20: require('../assets/images/20.jpg'),
+    21: require('../assets/images/21.jpg'),
+    22: require('../assets/images/22.jpg'),
+    23: require('../assets/images/23.jpg'),
+    24: require('../assets/images/24.jpg'),
+    25: require('../assets/images/25.jpg'),
+    26: require('../assets/images/26.jpg'),
+    27: require('../assets/images/27.jpg'),
+    28: require('../assets/images/28.jpg'),
+    29: require('../assets/images/29.jpg'),
+    30: require('../assets/images/30.jpg'),
+    31: require('../assets/images/31.jpg'),
+    32: require('../assets/images/32.jpg'),
+    33: require('../assets/images/33.jpg'),
+    34: require('../assets/images/34.jpg'),
+    35: require('../assets/images/35.jpg'),
+    36: require('../assets/images/36.jpg'),
+    37: require('../assets/images/37.jpg'),
+    38: require('../assets/images/38.jpg'),
+    39: require('../assets/images/39.jpg'),
+    40: require('../assets/images/40.jpg'),
+    41: require('../assets/images/41.jpg'),
+    42: require('../assets/images/42.jpg'),
+    43: require('../assets/images/43.jpg'),
+    44: require('../assets/images/44.jpg'),
+    45: require('../assets/images/45.jpg'),
+    46: require('../assets/images/46.jpg'),
+    47: require('../assets/images/47.jpg'),
+    48: require('../assets/images/48.jpg'),
+    49: require('../assets/images/49.jpg'),
+    50: require('../assets/images/50.jpg'),
+    51: require('../assets/images/51.jpg'),
+    52: require('../assets/images/52.jpg'),
+    53: require('../assets/images/53.jpg'),
+    54: require('../assets/images/54.jpg'),
+    55: require('../assets/images/55.jpg'),
+    56: require('../assets/images/56.jpg'),
+    57: require('../assets/images/57.jpg'),
+    58: require('../assets/images/58.jpg'),
+    59: require('../assets/images/59.jpg'),
+    60: require('../assets/images/60.jpg'),
+    61: require('../assets/images/61.jpg'),
+    62: require('../assets/images/62.jpg'),
+    63: require('../assets/images/63.jpg'),
+    64: require('../assets/images/64.jpg'),
+    65: require('../assets/images/65.jpg'),
+    66: require('../assets/images/66.jpg'),
+    67: require('../assets/images/67.jpg'),
+    68: require('../assets/images/68.jpg'),
+    69: require('../assets/images/69.jpg'),
+    70: require('../assets/images/70.jpg'),
+    71: require('../assets/images/71.jpg'),
+    72: require('../assets/images/72.jpg'),
+    73: require('../assets/images/73.jpg'),
+    74: require('../assets/images/74.jpg'),
+    75: require('../assets/images/75.jpg'),
+    76: require('../assets/images/76.jpg'),
+    77: require('../assets/images/77.jpg'),
+    78: require('../assets/images/78.jpg'),
+    79: require('../assets/images/79.jpg'),
+    80: require('../assets/images/80.jpg'),
+    81: require('../assets/images/81.jpg'),
+    82: require('../assets/images/82.jpg'),
+    83: require('../assets/images/83.jpg'),
+    84: require('../assets/images/84.jpg'),
+    85: require('../assets/images/85.jpg'),
+    86: require('../assets/images/86.jpg'),
+    87: require('../assets/images/87.jpg'),
+    88: require('../assets/images/88.jpg'),
+    89: require('../assets/images/89.jpg'),
+    90: require('../assets/images/90.jpg'),
+    91: require('../assets/images/91.jpg'),
+    92: require('../assets/images/92.jpg'),
+    93: require('../assets/images/93.jpg'),
+    94: require('../assets/images/94.jpg'),
+    95: require('../assets/images/95.jpg'),
+    96: require('../assets/images/96.jpg'),
+    97: require('../assets/images/97.jpg'),
+    98: require('../assets/images/98.jpg'),
+    99: require('../assets/images/99.jpg'),
+    100: require('../assets/images/100.jpg'),
   };
 
   const [images, setimages] = useState([
@@ -48,11 +136,6 @@ export function GameScreen({navigation, route}) {
   const [grid3, setgrid3] = React.useState('');
   const [grid4, setgrid4] = React.useState('');
 
-  // console.log('grid1', grid1);
-  // console.log('grid2', grid2);
-  // console.log('grid3', grid3);
-  // console.log('grid4', grid4);
-
   const [score, setScore] = useState(4);
 
   function updateGrid() {
@@ -61,9 +144,8 @@ export function GameScreen({navigation, route}) {
     json.classifications[score - 1] = grid3;
     json.classifications[score - 0] = grid4;
 
-    if (score == 12) {
-      // console.log('GAME JSON:', JSON.stringify(json, null, 4));
-      navigation.navigate('Results', {json});
+    if (score == 100) {
+      navigation.navigate('Results', {json, IterationID});
       return;
     }
 

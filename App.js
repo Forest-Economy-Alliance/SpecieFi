@@ -41,9 +41,7 @@ function App() {
           name="Results"
           component={ResultsScreen}
           options={{
-            title: 'Results',
-            headerStyle: {backgroundColor: '#f7f7f7'},
-            headerTitleAlign: 'center',
+            headerShown: false,
           }}
         />
       </Stack.Navigator>

@@ -5,12 +5,12 @@ import {Button, View, Text} from 'react-native';
 import FileSystem from 'react-native-fs';
 
 export function ResultsScreen({navigation, route}) {
-  const json = route.params.json;
+  const {json, IterationID} = route.params;
   console.log('Results JSON:', JSON.stringify(json, null, 4));
 
   function DownloadJSON() {
     const jsonString = JSON.stringify(json, null, 4);
-    const fileName = 'results.json';
+    const fileName = IterationID + '.json';
 
     var path = FileSystem.ExternalDirectoryPath + '/' + fileName;
     console.log('PATH', path);
@@ -18,6 +18,7 @@ export function ResultsScreen({navigation, route}) {
     FileSystem.writeFile(path, jsonString, 'utf8')
       .then(success => {
         console.log('FILE WRITTEN!');
+        alert('File written to ' + path);
       })
       .catch(err => {
         console.log(err.message);
