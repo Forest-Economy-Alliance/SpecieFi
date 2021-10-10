@@ -2,6 +2,8 @@ import React from 'react';
 
 import {Button, View, Text} from 'react-native';
 
+import SoundPlayer from 'react-native-sound-player';
+
 export function HomeScreen({navigation}) {
   return (
     <View
