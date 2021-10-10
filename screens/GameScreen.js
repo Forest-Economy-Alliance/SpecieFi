@@ -1,76 +1,116 @@
-import * as React from 'react';
-import {Text, View, Image, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+
+import {
+  Text,
+  View,
+  Image,
+  FlatList,
+  TouchableOpacity,
+  StyleSheet,
+  Button,
+} from 'react-native';
 import {DraxProvider, DraxView} from 'react-native-drax';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 import SoundPlayer from 'react-native-sound-player';
 
-export function GameScreen({navigation, route}) {
-  const {data, UserID, FolderPath} = route.params;
-  console.log('DATA Transferred\n', JSON.stringify(route.params));
+let counter = 0;
 
-  const [image1, setImage1] = React.useState([]);
-  const [image2, setImage2] = React.useState([]);
-  const [image3, setImage3] = React.useState([]);
-  const [image4, setImage4] = React.useState([]);
+export function GameScreen({navigation, route}) {
+  const {data, UserID} = route.params;
+  const {Name, Age, Sex} = data;
+
+  const [grid1, setgrid1] = React.useState([]);
+  const [grid2, setgrid2] = React.useState([]);
+  const [grid3, setgrid3] = React.useState([]);
+  const [grid4, setgrid4] = React.useState([]);
+
+  console.log('grid1', grid1);
+  console.log('grid2', grid2);
+  console.log('grid3', grid3);
+  console.log('grid4', grid4);
+
+  let imagePathDict = {
+    1: require('../assets/images/1.jpg'),
+    2: require('../assets/images/2.jpg'),
+    3: require('../assets/images/3.jpg'),
+    4: require('../assets/images/4.jpg'),
+    5: require('../assets/images/5.jpg'),
+    6: require('../assets/images/6.jpg'),
+    7: require('../assets/images/7.jpg'),
+    8: require('../assets/images/8.jpg'),
+    9: require('../assets/images/9.jpg'),
+    10: require('../assets/images/10.jpg'),
+    11: require('../assets/images/11.jpg'),
+    12: require('../assets/images/12.jpg'),
+  };
+
+  const [images, setimages] = useState([
+    imagePathDict[1],
+    imagePathDict[2],
+    imagePathDict[3],
+    imagePathDict[4],
+  ]);
+
+  function updateGrid() {
+    if (counter == 12) counter = 0;
+    setimages([
+      imagePathDict[counter + 1],
+      imagePathDict[counter + 2],
+      imagePathDict[counter + 3],
+      imagePathDict[counter + 4],
+    ]);
+    counter += 4;
+  }
 
   return (
     <GestureHandlerRootView style={{flex: 1}}>
-      <Image
-        style={{width: '100%', height: 200, resizeMode: 'contain'}}
-        source={require('../assets/images/1.jpg')}
-      />
       <DraxProvider>
         <View style={styles.container}>
           <View style={styles.allImages}>
             <View style={styles.imageContainer}>
-              <Image source={image1} resizeMode="contain" />
               <DraxView
                 style={[
                   styles.centeredContent,
                   styles.receivingZone,
-                  styles.magenta,
+                  styles.ghostwhite,
                 ]}
                 receivingStyle={styles.receiving}
-                renderContent={({viewState}) => {
-                  const receivingDrag = viewState && viewState.receivingDrag;
-                  const payload = receivingDrag && receivingDrag.payload;
+                renderContent={() => {
                   return (
                     <>
-                      <Text>Image 1</Text>
-                      <Text style={styles.incomingPayload}>
-                        {payload || '-'}
-                      </Text>
-                      <Text style={styles.image1}>{image1.join(' ')}</Text>
+                      <Image
+                        style={styles.image}
+                        source={images[0]}
+                        resizeMode="cover"
+                      />
                     </>
                   );
                 }}
                 onReceiveDragDrop={event => {
-                  setImage1([...image1, event.dragged.payload || '?']);
+                  setgrid1([event.dragged.payload]);
                 }}
               />
               <DraxView
                 style={[
                   styles.centeredContent,
                   styles.receivingZone,
-                  styles.magenta,
+                  styles.ghostwhite,
                 ]}
                 receivingStyle={styles.receiving}
-                renderContent={({viewState}) => {
-                  const receivingDrag = viewState && viewState.receivingDrag;
-                  const payload = receivingDrag && receivingDrag.payload;
+                renderContent={() => {
                   return (
                     <>
-                      <Text>Image 2</Text>
-                      <Text style={styles.incomingPayload}>
-                        {payload || '-'}
-                      </Text>
-                      <Text style={styles.image2}>{image2.join(' ')}</Text>
+                      <Image
+                        style={styles.image}
+                        source={images[1]}
+                        resizeMode="cover"
+                      />
                     </>
                   );
                 }}
                 onReceiveDragDrop={event => {
-                  setImage2([...image2, event.dragged.payload || '?']);
+                  setgrid2([event.dragged.payload]);
                 }}
               />
             </View>
@@ -80,63 +120,67 @@ export function GameScreen({navigation, route}) {
                 style={[
                   styles.centeredContent,
                   styles.receivingZone,
-                  styles.magenta,
+                  styles.ghostwhite,
                 ]}
                 receivingStyle={styles.receiving}
-                renderContent={({viewState}) => {
-                  const receivingDrag = viewState && viewState.receivingDrag;
-                  const payload = receivingDrag && receivingDrag.payload;
+                renderContent={() => {
                   return (
                     <>
-                      <Text>Image 3</Text>
-                      <Text style={styles.incomingPayload}>
-                        {payload || '-'}
-                      </Text>
-                      <Text style={styles.image3}>{image3.join(' ')}</Text>
+                      <Image
+                        style={styles.image}
+                        source={images[2]}
+                        resizeMode="cover"
+                      />
                     </>
                   );
                 }}
                 onReceiveDragDrop={event => {
-                  setImage3([...image3, event.dragged.payload || '?']);
+                  setgrid3([event.dragged.payload]);
                 }}
               />
               <DraxView
                 style={[
                   styles.centeredContent,
                   styles.receivingZone,
-                  styles.magenta,
+                  styles.ghostwhite,
                 ]}
                 receivingStyle={styles.receiving}
-                renderContent={({viewState}) => {
-                  const receivingDrag = viewState && viewState.receivingDrag;
-                  const payload = receivingDrag && receivingDrag.payload;
+                renderContent={() => {
                   return (
                     <>
-                      <Text>Image 4</Text>
-                      <Text style={styles.incomingPayload}>
-                        {payload || '-'}
-                      </Text>
-                      <Text style={styles.image4}>{image4.join(' ')}</Text>
+                      <Image
+                        style={styles.image}
+                        source={images[3]}
+                        resizeMode="cover"
+                      />
                     </>
                   );
                 }}
                 onReceiveDragDrop={event => {
-                  setImage4([...image4, event.dragged.payload || '?']);
+                  setgrid4([event.dragged.payload]);
                 }}
               />
             </View>
           </View>
+
           <View style={styles.palette}>
-            <DraxView
-              style={[styles.centeredContent, styles.draggableBox, styles.red]}
-              draggingStyle={styles.dragging}
-              dragReleasedStyle={styles.dragging}
-              hoverDraggingStyle={styles.hoverDragging}
-              dragPayload={'R'}
-              longPressDelay={0}
-              onDragStart={() => SoundPlayer.playSoundFile('red', 'mp3')}>
-              <Text>RED</Text>
-            </DraxView>
+            <TouchableOpacity
+              onPress={() => SoundPlayer.playSoundFile('red', 'mp3')}>
+              <DraxView
+                style={[
+                  styles.centeredContent,
+                  styles.draggableBox,
+                  styles.red,
+                ]}
+                draggingStyle={styles.dragging}
+                dragReleasedStyle={styles.dragging}
+                hoverDraggingStyle={styles.hoverDragging}
+                dragPayload={'R'}
+                longPressDelay={0}
+                onDragStart={() =>
+                  SoundPlayer.playSoundFile('red', 'mp3')
+                }></DraxView>
+            </TouchableOpacity>
             <DraxView
               style={[
                 styles.centeredContent,
@@ -148,9 +192,9 @@ export function GameScreen({navigation, route}) {
               hoverDraggingStyle={styles.hoverDragging}
               dragPayload={'G'}
               longPressDelay={0}
-              onDragStart={() => SoundPlayer.playSoundFile('green', 'mp3')}>
-              <Text>GREEN</Text>
-            </DraxView>
+              onDragStart={() =>
+                SoundPlayer.playSoundFile('green', 'mp3')
+              }></DraxView>
             <DraxView
               style={[styles.centeredContent, styles.draggableBox, styles.blue]}
               draggingStyle={styles.dragging}
@@ -158,9 +202,9 @@ export function GameScreen({navigation, route}) {
               hoverDraggingStyle={styles.hoverDragging}
               dragPayload={'B'}
               longPressDelay={0}
-              onDragStart={() => SoundPlayer.playSoundFile('blue', 'mp3')}>
-              <Text>BLUE</Text>
-            </DraxView>
+              onDragStart={() =>
+                SoundPlayer.playSoundFile('blue', 'mp3')
+              }></DraxView>
             <DraxView
               style={[
                 styles.centeredContent,
@@ -172,9 +216,13 @@ export function GameScreen({navigation, route}) {
               hoverDraggingStyle={styles.hoverDragging}
               dragPayload={'Y'}
               longPressDelay={0}
-              onDragStart={() => SoundPlayer.playSoundFile('yellow', 'mp3')}>
-              <Text>YELLOW</Text>
-            </DraxView>
+              onDragStart={() =>
+                SoundPlayer.playSoundFile('yellow', 'mp3')
+              }></DraxView>
+          </View>
+
+          <View style={{margin: 20, padding: 20}}>
+            <Button onPress={() => updateGrid()} title="Next" color="#121212" />
           </View>
         </View>
       </DraxProvider>
@@ -183,8 +231,13 @@ export function GameScreen({navigation, route}) {
 }
 
 const styles = StyleSheet.create({
+  image: {
+    width: 140,
+    height: 140,
+    borderRadius: 10,
+  },
   container: {
-    backgroundColor: '#121212',
+    backgroundColor: '#f8f8ff',
     flex: 1,
     padding: 12,
     paddingTop: 40,
@@ -195,7 +248,6 @@ const styles = StyleSheet.create({
     padding: 15,
     paddingTop: 40,
     justifyContent: 'space-evenly',
-    backgroundColor: '#121212',
   },
   imageContainer: {
     flex: 1,
@@ -209,29 +261,33 @@ const styles = StyleSheet.create({
   receivingZone: {
     height: 150,
     width: 150,
-    borderRadius: 10,
+    borderRadius: 15,
   },
   receiving: {
     borderColor: 'red',
-    borderWidth: 2,
+    borderWidth: 4,
   },
   incomingPayload: {
     marginTop: 10,
     fontSize: 24,
   },
-  image1: {
+  grid1: {
+    color: '#121212',
     marginTop: 10,
     fontSize: 18,
   },
-  image2: {
+  grid2: {
+    color: '#121212',
     marginTop: 10,
     fontSize: 18,
   },
-  image3: {
+  grid3: {
+    color: '#121212',
     marginTop: 10,
     fontSize: 18,
   },
-  image4: {
+  grid4: {
+    color: '#121212',
     marginTop: 10,
     fontSize: 18,
   },
@@ -254,28 +310,32 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   green: {
+    color: '#aaffaa',
     backgroundColor: '#aaffaa',
   },
   blue: {
+    color: '#aaaaff',
     backgroundColor: '#aaaaff',
   },
   red: {
+    color: '#ffaaaa',
     backgroundColor: '#ffaaaa',
   },
   yellow: {
+    color: '#ffffaa',
     backgroundColor: '#ffffaa',
   },
   cyan: {
     backgroundColor: '#aaffff',
   },
-  magenta: {
-    backgroundColor: '#ffaaff',
+  ghostwhite: {
+    backgroundColor: '#f8f8ff',
   },
   dragging: {
     opacity: 0.2,
   },
   hoverDragging: {
-    borderColor: 'magenta',
+    borderColor: '#121212',
     borderWidth: 2,
   },
 });
