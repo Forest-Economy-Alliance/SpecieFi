@@ -1,36 +1,27 @@
 import React, {useState} from 'react';
 
-import {
-  Text,
-  View,
-  Image,
-  FlatList,
-  TouchableOpacity,
-  StyleSheet,
-  Button,
-} from 'react-native';
+import {View, Image, StyleSheet, Button, Text} from 'react-native';
 import {DraxProvider, DraxView} from 'react-native-drax';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 import SoundPlayer from 'react-native-sound-player';
 
-let counter = 0;
-
 export function GameScreen({navigation, route}) {
   const {data, UserID} = route.params;
-  const {Name, Age, Sex} = data;
 
-  const [grid1, setgrid1] = React.useState([]);
-  const [grid2, setgrid2] = React.useState([]);
-  const [grid3, setgrid3] = React.useState([]);
-  const [grid4, setgrid4] = React.useState([]);
+  const IterationID =
+    (100000 + Math.random() * 1000000).toFixed(0).toString() + '_' + UserID;
 
-  console.log('grid1', grid1);
-  console.log('grid2', grid2);
-  console.log('grid3', grid3);
-  console.log('grid4', grid4);
+  const [json, setjson] = useState({
+    name: data.Name,
+    age: data.Age,
+    sex: data.Sex,
+    id: UserID,
+    iteration: IterationID,
+    classifications: {},
+  });
 
-  let imagePathDict = {
+  let imagePaths = {
     1: require('../assets/images/1.jpg'),
     2: require('../assets/images/2.jpg'),
     3: require('../assets/images/3.jpg'),
@@ -46,21 +37,49 @@ export function GameScreen({navigation, route}) {
   };
 
   const [images, setimages] = useState([
-    imagePathDict[1],
-    imagePathDict[2],
-    imagePathDict[3],
-    imagePathDict[4],
+    imagePaths[1],
+    imagePaths[2],
+    imagePaths[3],
+    imagePaths[4],
   ]);
 
+  const [grid1, setgrid1] = React.useState('');
+  const [grid2, setgrid2] = React.useState('');
+  const [grid3, setgrid3] = React.useState('');
+  const [grid4, setgrid4] = React.useState('');
+
+  // console.log('grid1', grid1);
+  // console.log('grid2', grid2);
+  // console.log('grid3', grid3);
+  // console.log('grid4', grid4);
+
+  const [score, setScore] = useState(4);
+
   function updateGrid() {
-    if (counter == 12) counter = 0;
+    json.classifications[score - 3] = grid1;
+    json.classifications[score - 2] = grid2;
+    json.classifications[score - 1] = grid3;
+    json.classifications[score - 0] = grid4;
+
+    if (score == 12) {
+      // console.log('GAME JSON:', JSON.stringify(json, null, 4));
+      navigation.navigate('Results', {json});
+      return;
+    }
+
     setimages([
-      imagePathDict[counter + 1],
-      imagePathDict[counter + 2],
-      imagePathDict[counter + 3],
-      imagePathDict[counter + 4],
+      imagePaths[score + 1],
+      imagePaths[score + 2],
+      imagePaths[score + 3],
+      imagePaths[score + 4],
     ]);
-    counter += 4;
+
+    setScore(score + 4);
+
+    setgrid1('');
+    setgrid2('');
+    setgrid3('');
+    setgrid4('');
   }
 
   return (
@@ -84,11 +103,12 @@ export function GameScreen({navigation, route}) {
                         source={images[0]}
                         resizeMode="cover"
                       />
+                      <Text style={{color: '#292b2c'}}>{grid1}</Text>
                     </>
                   );
                 }}
                 onReceiveDragDrop={event => {
-                  setgrid1([event.dragged.payload]);
+                  setgrid1(event.dragged.payload);
                 }}
               />
               <DraxView
@@ -106,11 +126,12 @@ export function GameScreen({navigation, route}) {
                         source={images[1]}
                         resizeMode="cover"
                       />
+                      <Text style={{color: '#292b2c'}}>{grid2}</Text>
                     </>
                   );
                 }}
                 onReceiveDragDrop={event => {
-                  setgrid2([event.dragged.payload]);
+                  setgrid2(event.dragged.payload);
                 }}
               />
             </View>
@@ -131,11 +152,12 @@ export function GameScreen({navigation, route}) {
                         source={images[2]}
                         resizeMode="cover"
                       />
+                      <Text style={{color: '#292b2c'}}>{grid3}</Text>
                     </>
                   );
                 }}
                 onReceiveDragDrop={event => {
-                  setgrid3([event.dragged.payload]);
+                  setgrid3(event.dragged.payload);
                 }}
               />
               <DraxView
@@ -153,34 +175,27 @@ export function GameScreen({navigation, route}) {
                         source={images[3]}
                         resizeMode="cover"
                       />
+                      <Text style={{color: '#292b2c'}}>{grid4}</Text>
                     </>
                   );
                 }}
                 onReceiveDragDrop={event => {
-                  setgrid4([event.dragged.payload]);
+                  setgrid4(event.dragged.payload);
                 }}
               />
             </View>
           </View>
 
           <View style={styles.palette}>
-            <TouchableOpacity
-              onPress={() => SoundPlayer.playSoundFile('red', 'mp3')}>
-              <DraxView
-                style={[
-                  styles.centeredContent,
-                  styles.draggableBox,
-                  styles.red,
-                ]}
-                draggingStyle={styles.dragging}
-                dragReleasedStyle={styles.dragging}
-                hoverDraggingStyle={styles.hoverDragging}
-                dragPayload={'R'}
-                longPressDelay={0}
-                onDragStart={() =>
-                  SoundPlayer.playSoundFile('red', 'mp3')
-                }></DraxView>
-            </TouchableOpacity>
+            <DraxView
+              style={[styles.centeredContent, styles.draggableBox, styles.red]}
+              draggingStyle={styles.dragging}
+              dragReleasedStyle={styles.dragging}
+              dragPayload={'Red'}
+              longPressDelay={0}
+              onDragStart={() =>
+                SoundPlayer.playSoundFile('red', 'mp3')
+              }></DraxView>
             <DraxView
               style={[
                 styles.centeredContent,
@@ -189,8 +204,7 @@ export function GameScreen({navigation, route}) {
               ]}
               draggingStyle={styles.dragging}
               dragReleasedStyle={styles.dragging}
-              hoverDraggingStyle={styles.hoverDragging}
-              dragPayload={'G'}
+              dragPayload={'Green'}
               longPressDelay={0}
               onDragStart={() =>
                 SoundPlayer.playSoundFile('green', 'mp3')
@@ -199,8 +213,7 @@ export function GameScreen({navigation, route}) {
               style={[styles.centeredContent, styles.draggableBox, styles.blue]}
               draggingStyle={styles.dragging}
               dragReleasedStyle={styles.dragging}
-              hoverDraggingStyle={styles.hoverDragging}
-              dragPayload={'B'}
+              dragPayload={'Blue'}
               longPressDelay={0}
               onDragStart={() =>
                 SoundPlayer.playSoundFile('blue', 'mp3')
@@ -213,8 +226,7 @@ export function GameScreen({navigation, route}) {
               ]}
               draggingStyle={styles.dragging}
               dragReleasedStyle={styles.dragging}
-              hoverDraggingStyle={styles.hoverDragging}
-              dragPayload={'Y'}
+              dragPayload={'Yellow'}
               longPressDelay={0}
               onDragStart={() =>
                 SoundPlayer.playSoundFile('yellow', 'mp3')
@@ -222,7 +234,7 @@ export function GameScreen({navigation, route}) {
           </View>
 
           <View style={{margin: 20, padding: 20}}>
-            <Button onPress={() => updateGrid()} title="Next" color="#121212" />
+            <Button onPress={() => updateGrid()} title="Next" color="#292b2c" />
           </View>
         </View>
       </DraxProvider>
@@ -232,12 +244,12 @@ export function GameScreen({navigation, route}) {
 
 const styles = StyleSheet.create({
   image: {
-    width: 140,
-    height: 140,
+    width: 120,
+    height: 120,
     borderRadius: 10,
   },
   container: {
-    backgroundColor: '#f8f8ff',
+    backgroundColor: '#f7f7f7',
     flex: 1,
     padding: 12,
     paddingTop: 40,
@@ -264,7 +276,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   receiving: {
-    borderColor: 'red',
+    borderColor: '#292b2c',
     borderWidth: 4,
   },
   incomingPayload: {
@@ -272,22 +284,22 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   grid1: {
-    color: '#121212',
+    color: '#292b2c',
     marginTop: 10,
     fontSize: 18,
   },
   grid2: {
-    color: '#121212',
+    color: '#292b2c',
     marginTop: 10,
     fontSize: 18,
   },
   grid3: {
-    color: '#121212',
+    color: '#292b2c',
     marginTop: 10,
     fontSize: 18,
   },
   grid4: {
-    color: '#121212',
+    color: '#292b2c',
     marginTop: 10,
     fontSize: 18,
   },
@@ -310,32 +322,25 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   green: {
-    color: '#aaffaa',
-    backgroundColor: '#aaffaa',
+    color: '#5cb85c',
+    backgroundColor: '#5cb85c',
   },
   blue: {
-    color: '#aaaaff',
-    backgroundColor: '#aaaaff',
+    color: '#5bc0de',
+    backgroundColor: '#5bc0de',
   },
   red: {
-    color: '#ffaaaa',
-    backgroundColor: '#ffaaaa',
+    color: '#d9534f',
+    backgroundColor: '#d9534f',
   },
   yellow: {
-    color: '#ffffaa',
-    backgroundColor: '#ffffaa',
-  },
-  cyan: {
-    backgroundColor: '#aaffff',
+    color: '#f0ad4e',
+    backgroundColor: '#f0ad4e',
   },
   ghostwhite: {
-    backgroundColor: '#f8f8ff',
+    backgroundColor: '#f7f7f7',
   },
   dragging: {
     opacity: 0.2,
-  },
-  hoverDragging: {
-    borderColor: '#121212',
-    borderWidth: 2,
   },
 });

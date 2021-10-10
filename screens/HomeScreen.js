@@ -11,11 +11,11 @@ export function HomeScreen({navigation}) {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#f8f8ff',
+        backgroundColor: '#f7f7f7',
       }}>
       <Text
         style={{
-          color: '#213632',
+          color: '#292b2c',
           fontFamily: 'LeckerliOne',
           fontSize: 70,
           width: '100%',
@@ -26,7 +26,7 @@ export function HomeScreen({navigation}) {
       <View style={{padding: 10, width: '50%'}}>
         <Button
           title="Start"
-          color="#213632"
+          color="#292b2c"
           onPress={() => navigation.navigate('Details')}
         />
       </View>

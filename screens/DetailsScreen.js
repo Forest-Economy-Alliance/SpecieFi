@@ -41,8 +41,8 @@ export function DetailsScreen({navigation, route}) {
           <View style={styles.DetailsInput}>
             <TextInput
               onBlur={onBlur}
-              color="#121212"
-              placeholder="Full Name"
+              color="#292b2c"
+              placeholder="Name"
               placeholderTextColor="#262626"
               onChangeText={value => onChange(value)}
               value={value}
@@ -58,8 +58,9 @@ export function DetailsScreen({navigation, route}) {
           <View style={styles.DetailsInput}>
             <TextInput
               onBlur={onBlur}
-              color="#121212"
+              color="#292b2c"
               placeholder="Age"
+              keyboardType="numeric"
               placeholderTextColor="#262626"
               onChangeText={value => onChange(value)}
               value={value}
@@ -75,7 +76,7 @@ export function DetailsScreen({navigation, route}) {
           <View style={styles.DetailsInput}>
             <TextInput
               onBlur={onBlur}
-              color="#121212"
+              color="#292b2c"
               placeholder="Sex"
               placeholderTextColor="#262626"
               onChangeText={value => onChange(value)}
@@ -90,7 +91,7 @@ export function DetailsScreen({navigation, route}) {
       <View style={{flex: 1, flexDirection: 'row'}}>
         <View style={{padding: 5, width: '25%'}}>
           <Button
-            color="#B81D13"
+            color="#d9534f"
             title="Reset Details"
             onPress={() => {
               reset({
@@ -104,7 +105,7 @@ export function DetailsScreen({navigation, route}) {
         <View style={{padding: 5, width: '25%'}}>
           <Button
             title="Start Game"
-            color="#008450"
+            color="#5cb85c"
             onPress={handleSubmit(onSubmit)}
           />
         </View>
@@ -116,13 +117,13 @@ export function DetailsScreen({navigation, route}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f8ff',
+    backgroundColor: '#f7f7f7',
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 50,
   },
   button: {
-    backgroundColor: '#121212',
+    backgroundColor: '#292b2c',
     borderRadius: 5,
     padding: 10,
     margin: 10,

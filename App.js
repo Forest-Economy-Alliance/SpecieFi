@@ -6,6 +6,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {DetailsScreen} from './screens/DetailsScreen';
 import {HomeScreen} from './screens/HomeScreen';
 import {GameScreen} from './screens/GameScreen';
+import {ResultsScreen} from './screens/ResultsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +24,7 @@ function App() {
           component={DetailsScreen}
           options={{
             title: 'Details',
-            headerStyle: {backgroundColor: '#f8f8ff'},
+            headerStyle: {backgroundColor: '#f7f7f7'},
             headerTitleAlign: 'center',
           }}
         />
@@ -32,7 +33,16 @@ function App() {
           component={GameScreen}
           options={{
             title: 'Game',
-            headerStyle: {backgroundColor: '#f8f8ff'},
+            headerStyle: {backgroundColor: '#f7f7f7'},
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen
+          name="Results"
+          component={ResultsScreen}
+          options={{
+            title: 'Results',
+            headerStyle: {backgroundColor: '#f7f7f7'},
             headerTitleAlign: 'center',
           }}
         />
