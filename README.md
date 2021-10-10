@@ -1,4 +1,4 @@
-# Specifi
+![](./assets/icon/icon_500x500.png)
 
 ## Prerequisites
 
@@ -33,7 +33,17 @@ recordings
 
 ## Process
 
-Step 1. Copy the 4 mp3 files to the `android/app/src/main/res/raw/*.mp3` folder.
-Step 2. Copy the 100 images to the `assets/images/*.jpg` folder.
+- Download the GitHub repository as a ZIP. Unzip the contents.
 
-Step 3.
+- `cd Specifi`
+- `npm install`
+
+- Copy the 4 mp3 files to the `android/app/src/main/res/raw/*.mp3` folder.
+- Copy the 100 jpg files to the `assets/images/*.jpg` folder.
+
+- `cd android`
+- `./gradlew assembleRelease` (The app will be built in `android/app/build/outputs/apk/release/app-release.apk`)
+
+- Copy this app to the device and run it.
+
+:white_check_mark:
