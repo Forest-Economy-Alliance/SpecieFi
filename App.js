@@ -24,6 +24,7 @@ function App() {
           options={{
             title: 'Details',
             headerStyle: {backgroundColor: '#f8f8ff'},
+            headerTitleAlign: 'center',
           }}
         />
         <Stack.Screen
@@ -32,6 +33,7 @@ function App() {
           options={{
             title: 'Game',
             headerStyle: {backgroundColor: '#f8f8ff'},
+            headerTitleAlign: 'center',
           }}
         />
       </Stack.Navigator>

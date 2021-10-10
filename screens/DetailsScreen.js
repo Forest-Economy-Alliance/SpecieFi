@@ -37,15 +37,6 @@ export function DetailsScreen({navigation, route}) {
 
   return (
     <View style={styles.container}>
-      <Text
-        style={{
-          fontSize: 40,
-          color: '#121212',
-          marginBottom: 20,
-          fontFamily: 'Roboto',
-        }}>
-        Details
-      </Text>
       <Controller
         control={control}
         render={({field: {onChange, onBlur, value}}) => (
