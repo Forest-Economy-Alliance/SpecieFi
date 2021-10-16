@@ -6,7 +6,7 @@
 2. Android Studio and Android SDK
 3. Java JRE JDK 11 (`sudo apt install default-jre default-jdk`)
 
-I am assuming that we already have 104 files (100 images + 4 images) with the following structure:
+I am assuming that we already have 104 files (100 images + 4 audio) with the following structure:
 
 ```
 images
