@@ -25,9 +25,9 @@ images
   └── 100.jpg
 
 recordings
-  ├── blue.mp3
-  ├── green.mp3
-  ├── red.mp3
+  ├── orange.mp3
+  ├── purple.mp3
+  ├── rose.mp3
   └── yellow.mp3
 ```
 
