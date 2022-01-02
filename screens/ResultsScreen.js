@@ -43,7 +43,7 @@ export function ResultsScreen({navigation, route}) {
       </Text>
       <View style={{padding: 10, width: '25%'}}>
         <Button
-          color="#d9534f"
+          color="#FE6100"
           title="Home"
           onPress={() => navigation.navigate('Home')}
         />
@@ -51,7 +51,7 @@ export function ResultsScreen({navigation, route}) {
       <View style={{padding: 10, width: '50%'}}>
         <Button
           title="Download Results"
-          color="#5cb85c"
+          color="#785EF0"
           onPress={DownloadJSON}
         />
       </View>

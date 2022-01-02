@@ -91,7 +91,7 @@ export function DetailsScreen({navigation, route}) {
       <View style={{flex: 1, flexDirection: 'row'}}>
         <View style={{padding: 5, width: '25%'}}>
           <Button
-            color="#d9534f"
+            color="#FE6100"
             title="Reset Details"
             onPress={() => {
               reset({
@@ -105,7 +105,7 @@ export function DetailsScreen({navigation, route}) {
         <View style={{padding: 5, width: '25%'}}>
           <Button
             title="Start Game"
-            color="#5cb85c"
+            color="#785EF0"
             onPress={handleSubmit(onSubmit)}
           />
         </View>
