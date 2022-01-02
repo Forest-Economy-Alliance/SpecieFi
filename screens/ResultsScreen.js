@@ -44,7 +44,7 @@ export function ResultsScreen({navigation, route}) {
       <View style={{padding: 10, width: '25%'}}>
         <Button
           color="#d9534f"
-          title="Restart"
+          title="Home"
           onPress={() => navigation.navigate('Home')}
         />
       </View>

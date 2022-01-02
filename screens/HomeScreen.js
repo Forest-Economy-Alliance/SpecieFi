@@ -2,8 +2,6 @@ import React from 'react';
 
 import {Button, View, Text} from 'react-native';
 
-import SoundPlayer from 'react-native-sound-player';
-
 export function HomeScreen({navigation}) {
   return (
     <View
@@ -28,6 +26,13 @@ export function HomeScreen({navigation}) {
           title="Start"
           color="#292b2c"
           onPress={() => navigation.navigate('Details')}
+        />
+      </View>
+      <View style={{padding: 10, width: '50%'}}>
+        <Button
+          title="Submissions"
+          color="#292b2c"
+          onPress={() => navigation.navigate('Submissions')}
         />
       </View>
     </View>
