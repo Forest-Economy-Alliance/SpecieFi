@@ -326,14 +326,14 @@ export function GameScreen({navigation, route}) {
 
 const styles = StyleSheet.create({
   image: {
-    width: 150,
-    height: 140,
-    borderRadius: 10,
+    width: 160,
+    height: 160,
+    borderRadius: 5,
   },
   receivingZone: {
-    height: 170,
-    width: 170,
-    borderRadius: 15,
+    height: 185,
+    width: 165,
+    borderRadius: 5,
   },
   container: {
     backgroundColor: '#f7f7f7',
@@ -344,7 +344,7 @@ const styles = StyleSheet.create({
   },
   allImages: {
     flex: 1,
-    padding: 15,
+    padding: 10,
     paddingTop: 40,
     justifyContent: 'space-evenly',
   },

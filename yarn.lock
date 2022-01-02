@@ -5442,6 +5442,16 @@
     "jscodeshift" "^0.11.0"
     "nullthrows" "^1.1.1"
 
+"react-native-dialog-input@^1.0.8":
+  "integrity" "sha512-W9YNMt6r+rUUMDEkOR1WMuGfSJw97ujB8H1xp8TjJTOnYVSlsf4aEP6t+J8tVk3XZaDcTawXgDjxH6E1WVWRog=="
+  "resolved" "https://registry.npmjs.org/react-native-dialog-input/-/react-native-dialog-input-1.0.8.tgz"
+  "version" "1.0.8"
+
+"react-native-dialog@^9.2.0":
+  "integrity" "sha512-VXdfo+bAi9ER7+w4aKOWypw8K97C2orvnfnxX4Lup/U8iQB/635V00hgfHEE3s0XScQHftXxm34Fa4iIIjojQA=="
+  "resolved" "https://registry.npmjs.org/react-native-dialog/-/react-native-dialog-9.2.0.tgz"
+  "version" "9.2.0"
+
 "react-native-document-picker@^7.1.0":
   "integrity" "sha512-pdGlOYh7YM9X0GCrDJIGNHrwCV/l7QCYGvLya8w4YnJAE3NmM/39lk+pPrbxnkEygifwPqG9R3IBt7ydmPLi/w=="
   "resolved" "https://registry.npmjs.org/react-native-document-picker/-/react-native-document-picker-7.1.0.tgz"
@@ -5494,7 +5504,7 @@
   "resolved" "https://registry.npmjs.org/react-native-sound-player/-/react-native-sound-player-0.11.1.tgz"
   "version" "0.11.1"
 
-"react-native@*", "react-native@>=0.62.0", "react-native@0.66.0":
+"react-native@*", "react-native@>=0.62.0", "react-native@>=0.63.0", "react-native@0.66.0":
   "integrity" "sha512-m26TKwzsfHVdZ1hDG+7mZ4M4ftxFFZrhtiT0OXuwfBzmNtB3xhsJtYszPeizw33c9YNp8rvehKT3c4ldDCW6kA=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.66.0.tgz"
   "version" "0.66.0"

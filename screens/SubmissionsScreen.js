@@ -1,23 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {Button, View, Text, FlatList} from 'react-native';
 
 import FileSystem from 'react-native-fs';
 
-export function SubmissionsScreen({navigation, route}) {
-  var submissionsPaths = ['submissions/'];
+import Dialog from 'react-native-dialog';
 
-  FileSystem.readDir(FileSystem.ExternalDirectoryPath)
-    .then(files => {
-      // console.log(JSON.stringify(files, null, 4));
-      for (let i = 0; i < files.length; i++)
-        submissionsPaths.push(files[i].name);
-      console.log(submissionsPaths);
-      submissionsPaths.shift();
-    })
-    .catch(err => {
-      console.log(err.message);
-    });
+export function SubmissionsScreen({navigation, route}) {
+  var submissionsPaths = ['Hidden'];
+
+  function loadSubmissions() {
+    FileSystem.readDir(FileSystem.ExternalDirectoryPath)
+      .then(files => {
+        for (let i = 0; i < files.length; i++) {
+          // console.log(files[i].name);
+          submissionsPaths.push(files[i].name);
+        }
+        submissionsPaths.shift();
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
+  }
+
+  loadSubmissions();
 
   function openFile(fileName) {
     FileSystem.readFile(
@@ -32,19 +38,21 @@ export function SubmissionsScreen({navigation, route}) {
       });
   }
 
-  return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-        backgroundColor: '#f7f7f7',
-        marginTop: 30,
-      }}>
-      <View
-        style={{
-          marginHorizontal: 40,
-          backgroundColor: '#f7f7f7',
-        }}>
+  const [visible, setVisible] = useState(true);
+  const [authorized, setAuthorized] = useState(false);
+
+  function handleAuthorize(code) {
+    console.log('Code:', code);
+    if (code == 2580) {
+      console.log('Authorized');
+      setAuthorized(true);
+      setVisible(false);
+    }
+  }
+
+  function showSubmissions() {
+    return (
+      <View>
         <FlatList
           data={submissionsPaths}
           renderItem={({item}) => (
@@ -63,7 +71,45 @@ export function SubmissionsScreen({navigation, route}) {
               />
             </View>
           )}
+          keyExtractor={item => item}
         />
+      </View>
+    );
+  }
+
+  return (
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'center',
+        backgroundColor: '#f7f7f7',
+      }}>
+      <View
+        style={{
+          marginHorizontal: 40,
+          backgroundColor: '#f7f7f7',
+        }}>
+        <View>
+          <Dialog.Container
+            visible={visible}
+            onBackdropPress={() => navigation.navigate('Home')}>
+            <Dialog.Title>Authorization</Dialog.Title>
+            <Dialog.Description>
+              Enter your authorization code to view the submissions.
+            </Dialog.Description>
+            <Dialog.Input
+              label="Code"
+              keyboardType="numeric"
+              onChangeText={text => handleAuthorize(text)}
+            />
+            <Dialog.Button
+              label="Back"
+              onPress={() => navigation.navigate('Home')}
+            />
+          </Dialog.Container>
+
+          {authorized ? showSubmissions() : null}
+        </View>
       </View>
     </View>
   );
