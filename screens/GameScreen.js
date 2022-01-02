@@ -270,35 +270,35 @@ export function GameScreen({navigation, route}) {
 
           <View style={styles.palette}>
             <DraxView
-              style={[styles.centeredContent, styles.draggableBox, styles.red]}
-              draggingStyle={styles.dragging}
-              dragReleasedStyle={styles.dragging}
-              dragPayload={'Red'}
-              longPressDelay={0}
-              onDragStart={() =>
-                SoundPlayer.playSoundFile('red', 'mp3')
-              }></DraxView>
-            <DraxView
               style={[
                 styles.centeredContent,
                 styles.draggableBox,
-                styles.green,
+                styles.orange,
               ]}
               draggingStyle={styles.dragging}
               dragReleasedStyle={styles.dragging}
-              dragPayload={'Green'}
+              dragPayload={'Orange'}
               longPressDelay={0}
               onDragStart={() =>
-                SoundPlayer.playSoundFile('green', 'mp3')
+                SoundPlayer.playSoundFile('orange', 'mp3')
+              }></DraxView>
+            <DraxView
+              style={[styles.centeredContent, styles.draggableBox, styles.rose]}
+              draggingStyle={styles.dragging}
+              dragReleasedStyle={styles.dragging}
+              dragPayload={'Rose'}
+              longPressDelay={0}
+              onDragStart={() =>
+                SoundPlayer.playSoundFile('rose', 'mp3')
               }></DraxView>
             <DraxView
               style={[styles.centeredContent, styles.draggableBox, styles.blue]}
               draggingStyle={styles.dragging}
               dragReleasedStyle={styles.dragging}
-              dragPayload={'Blue'}
+              dragPayload={'Purple'}
               longPressDelay={0}
               onDragStart={() =>
-                SoundPlayer.playSoundFile('blue', 'mp3')
+                SoundPlayer.playSoundFile('purple', 'mp3')
               }></DraxView>
             <DraxView
               style={[
@@ -403,21 +403,21 @@ const styles = StyleSheet.create({
     width: '25%',
     borderRadius: 10,
   },
-  green: {
-    color: '#5cb85c',
-    backgroundColor: '#5cb85c',
+  rose: {
+    color: '#DC267F',
+    backgroundColor: '#DC267F',
   },
   blue: {
-    color: '#5bc0de',
-    backgroundColor: '#5bc0de',
+    color: '#785EF0',
+    backgroundColor: '#785EF0',
   },
-  red: {
-    color: '#d9534f',
-    backgroundColor: '#d9534f',
+  orange: {
+    color: '#FE6100',
+    backgroundColor: '#FE6100',
   },
   yellow: {
-    color: '#f0ad4e',
-    backgroundColor: '#f0ad4e',
+    color: '#FFB000',
+    backgroundColor: '#FFB000',
   },
   ghostwhite: {
     backgroundColor: '#f7f7f7',
