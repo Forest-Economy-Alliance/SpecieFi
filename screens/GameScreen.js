@@ -326,9 +326,14 @@ export function GameScreen({navigation, route}) {
 
 const styles = StyleSheet.create({
   image: {
-    width: 120,
-    height: 120,
+    width: 150,
+    height: 140,
     borderRadius: 10,
+  },
+  receivingZone: {
+    height: 170,
+    width: 170,
+    borderRadius: 15,
   },
   container: {
     backgroundColor: '#f7f7f7',
@@ -351,11 +356,6 @@ const styles = StyleSheet.create({
   centeredContent: {
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  receivingZone: {
-    height: 150,
-    width: 150,
-    borderRadius: 15,
   },
   receiving: {
     borderColor: '#292b2c',
