@@ -1,5 +1,7 @@
 ![](./assets/icon/icon_500x500.png)
 
+Specifi enables community based classification of images through a simple game. It is an accessibility focused application for users with limited reading and writing capacity. It can be used across multiple users for classification of images, especially designed for classification of forest species.
+
 ## Prerequisites
 
 1. Node 12
