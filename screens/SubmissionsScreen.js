@@ -7,23 +7,17 @@ import FileSystem from 'react-native-fs';
 import Dialog from 'react-native-dialog';
 
 export function SubmissionsScreen({navigation, route}) {
-  var submissionsPaths = ['Hidden'];
+  var submissionsPaths = ['Submissions'];
 
-  function loadSubmissions() {
-    FileSystem.readDir(FileSystem.ExternalDirectoryPath)
-      .then(files => {
-        for (let i = 0; i < files.length; i++) {
-          // console.log(files[i].name);
-          submissionsPaths.push(files[i].name);
-        }
-        submissionsPaths.shift();
-      })
-      .catch(err => {
-        console.log(err.message);
-      });
-  }
-
-  loadSubmissions();
+  FileSystem.readDir(FileSystem.ExternalDirectoryPath)
+    .then(files => {
+      for (let i = 0; i < files.length; i++) {
+        submissionsPaths.push(files[i].name);
+      }
+    })
+    .catch(err => {
+      console.log(err.message);
+    });
 
   function openFile(fileName) {
     FileSystem.readFile(
@@ -42,7 +36,6 @@ export function SubmissionsScreen({navigation, route}) {
   const [authorized, setAuthorized] = useState(false);
 
   function handleAuthorize(code) {
-    console.log('Code:', code);
     if (code == 2580) {
       console.log('Authorized');
       setAuthorized(true);
