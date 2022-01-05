@@ -129,7 +129,7 @@ export function DashboardScreen() {
             style={{
               margin: 5,
             }}></View>
-          <Button title="Share" color={'#ff916f'} onPress={shareImages} />
+          <Button title="Export" color={'#ff916f'} onPress={shareImages} />
         </View>
         <Text style={styles.title}>{nImages} Image(s) Present</Text>
       </View>
@@ -146,7 +146,7 @@ export function DashboardScreen() {
             style={{
               margin: 5,
             }}></View>
-          <Button title="Share" color={'#ffca4d'} onPress={shareAudios} />
+          <Button title="Export" color={'#ffca4d'} onPress={shareAudios} />
         </View>
         <Text style={styles.title}>{nAudios} Audio(s) Present</Text>
       </View>
@@ -167,7 +167,7 @@ export function DashboardScreen() {
             style={{
               margin: 5,
             }}></View>
-          <Button title="Share" color={'#b3a4f7'} onPress={shareSubmissions} />
+          <Button title="Export" color={'#b3a4f7'} onPress={shareSubmissions} />
         </View>
         <Text style={styles.title}>{nSubmissions} Submission(s) Present</Text>
       </View>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Button, View, Text} from 'react-native';
+import {Button, View, Text, ImageBackground} from 'react-native';
 
 import FileSystem from 'react-native-fs';
 
@@ -17,38 +17,58 @@ export function HomeScreen({navigation}) {
         justifyContent: 'center',
         backgroundColor: '#f7f7f7',
       }}>
-      <Text
-        style={{
-          color: '#292b2c',
-          fontFamily: 'PlayfairDisplay',
-          fontSize: 70,
-          width: '100%',
-          textAlign: 'center',
-          marginBottom: 30,
-        }}>
-        Specifi
-      </Text>
-      <View style={{padding: 10, width: '50%'}}>
-        <Button
-          title="Start"
-          color="#292b2c"
-          onPress={() => navigation.navigate('Details')}
-        />
-      </View>
-      <View style={{padding: 10, width: '50%'}}>
-        <Button
-          title="Submissions"
-          color="#292b2c"
-          onPress={() => navigation.navigate('Submissions')}
-        />
-      </View>
-      <View style={{padding: 10, width: '50%'}}>
-        <Button
-          title="Dashboard"
-          color="#292b2c"
-          onPress={() => navigation.navigate('Dashboard')}
-        />
-      </View>
+      <ImageBackground
+        source={require('../assets/images/Specifi-bg.png')}
+        style={{width: '100%', height: '100%', flex: 1}}>
+        <Text
+          style={{
+            color: '#5C7269',
+            fontFamily: 'PlayfairDisplay',
+            fontSize: 70,
+            width: '100%',
+            textAlign: 'center',
+            marginTop: '40%',
+            marginBottom: '10%',
+          }}>
+          Specifi
+        </Text>
+        <View
+          style={{
+            paddingHorizontal: '30%',
+            paddingVertical: 10,
+            width: '100%',
+          }}>
+          <Button
+            title="Start"
+            color="#5C7269"
+            onPress={() => navigation.navigate('Details')}
+          />
+        </View>
+        <View
+          style={{
+            paddingHorizontal: '30%',
+            paddingVertical: 10,
+            width: '100%',
+          }}>
+          <Button
+            title="Submissions"
+            color="#5C7269"
+            onPress={() => navigation.navigate('Submissions')}
+          />
+        </View>
+        <View
+          style={{
+            paddingHorizontal: '30%',
+            paddingVertical: 10,
+            width: '100%',
+          }}>
+          <Button
+            title="Dashboard"
+            color="#5C7269"
+            onPress={() => navigation.navigate('Dashboard')}
+          />
+        </View>
+      </ImageBackground>
     </View>
   );
 }
