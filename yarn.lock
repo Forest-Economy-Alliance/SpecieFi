@@ -5504,6 +5504,11 @@
   dependencies:
     "warn-once" "^0.1.0"
 
+"react-native-share@^7.3.2":
+  "integrity" "sha512-1E2xxTzHYrV74WMuBz6VLx6Y9slBBNI9s0NxXDEYb0VsFT6DcHnbiaY4ExW5E6vw37s3gfZxm4zsv9/TwFEukA=="
+  "resolved" "https://registry.npmjs.org/react-native-share/-/react-native-share-7.3.2.tgz"
+  "version" "7.3.2"
+
 "react-native-sound-player@^0.11.1":
   "integrity" "sha512-hXf0qrVWzNniYo0BWvjloGKQIi0tc81H4FghxnPmyAVG6WWx+zq3k9twrOc6Ced8b6AdxCzmJfmjb4RZH0Y+Tg=="
   "resolved" "https://registry.npmjs.org/react-native-sound-player/-/react-native-sound-player-0.11.1.tgz"

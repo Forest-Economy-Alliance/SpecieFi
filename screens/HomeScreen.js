@@ -44,9 +44,9 @@ export function HomeScreen({navigation}) {
       </View>
       <View style={{padding: 10, width: '50%'}}>
         <Button
-          title="Import"
+          title="Dashboard"
           color="#292b2c"
-          onPress={() => navigation.navigate('Import')}
+          onPress={() => navigation.navigate('Dashboard')}
         />
       </View>
     </View>
