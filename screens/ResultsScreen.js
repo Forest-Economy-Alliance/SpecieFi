@@ -12,14 +12,14 @@ export function ResultsScreen({navigation, route}) {
     const jsonString = JSON.stringify(json, null, 4);
     const fileName = IterationID + '.json';
 
-    var path = FileSystem.ExternalDirectoryPath + '/' + fileName;
+    var path = FileSystem.ExternalDirectoryPath + '/submissions/' + fileName;
 
     FileSystem.writeFile(path, jsonString, 'utf8')
       .then(success => {
         alert('File written to ' + path);
       })
       .catch(err => {
-        // console.log(err.message);
+        console.log(err.message);
       });
   }
 

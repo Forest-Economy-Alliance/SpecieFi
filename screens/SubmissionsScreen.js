@@ -9,7 +9,7 @@ import Dialog from 'react-native-dialog';
 export function SubmissionsScreen({navigation, route}) {
   var submissionsPaths = ['Submissions'];
 
-  FileSystem.readDir(FileSystem.ExternalDirectoryPath)
+  FileSystem.readDir(FileSystem.ExternalDirectoryPath + '/submissions/')
     .then(files => {
       for (let i = 0; i < files.length; i++) {
         submissionsPaths.push(files[i].name);
@@ -21,7 +21,7 @@ export function SubmissionsScreen({navigation, route}) {
 
   function openFile(fileName) {
     FileSystem.readFile(
-      FileSystem.ExternalDirectoryPath + '/' + fileName,
+      FileSystem.ExternalDirectoryPath + '/submissions/' + fileName,
       'utf8',
     )
       .then(success => {

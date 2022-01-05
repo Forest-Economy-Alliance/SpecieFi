@@ -45,7 +45,7 @@ export function ImportScreen({navigation}) {
 
           FileSystem.copyFile(images[i].path, dest_path)
             .then(() => {
-              FileSystem.readDir(FileSystem.ExternalDirectoryPath + '/img_data')
+              FileSystem.readDir(FileSystem.ExternalDirectoryPath + '/images')
                 .then(files => {
                   setNImages(files.length);
                   console.log(files.length);
@@ -53,7 +53,6 @@ export function ImportScreen({navigation}) {
                 .catch(err => {
                   console.log(err.message);
                 });
-              console.log('Moved', file_name);
             })
             .catch(err => {
               console.log(err.message);

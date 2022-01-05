@@ -5,6 +5,7 @@ import {Button, View, Text} from 'react-native';
 import FileSystem from 'react-native-fs';
 
 export function HomeScreen({navigation}) {
+  FileSystem.mkdir(FileSystem.ExternalDirectoryPath + '/submissions');
   FileSystem.mkdir(FileSystem.ExternalDirectoryPath + '/images');
   FileSystem.mkdir(FileSystem.ExternalDirectoryPath + '/audios');
 
