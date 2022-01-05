@@ -8,6 +8,7 @@ import {HomeScreen} from './screens/HomeScreen';
 import {GameScreen} from './screens/GameScreen';
 import {ResultsScreen} from './screens/ResultsScreen';
 import {SubmissionsScreen} from './screens/SubmissionsScreen';
+import {ImportScreen} from './screens/ImportScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,15 @@ function App() {
           name="Home"
           component={HomeScreen}
           options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Import"
+          component={ImportScreen}
+          options={{
+            title: 'Import',
+            headerStyle: {backgroundColor: '#f7f7f7'},
+            headerTitleAlign: 'center',
+          }}
         />
         <Stack.Screen
           name="Details"
