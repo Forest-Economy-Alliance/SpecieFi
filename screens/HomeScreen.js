@@ -20,10 +20,11 @@ export function HomeScreen({navigation}) {
       <Text
         style={{
           color: '#292b2c',
-          fontFamily: 'LeckerliOne',
+          fontFamily: 'PlayfairDisplay',
           fontSize: 70,
           width: '100%',
           textAlign: 'center',
+          marginBottom: 30,
         }}>
         Specifi
       </Text>

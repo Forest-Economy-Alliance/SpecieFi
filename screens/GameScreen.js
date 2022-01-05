@@ -4,7 +4,7 @@ import {View, Image, StyleSheet, Button, Text} from 'react-native';
 import {DraxProvider, DraxView} from 'react-native-drax';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import FileSystem from 'react-native-fs';
-import SoundPlayer from 'react-native-sound-player';
+import Sound from 'react-native-sound';
 
 export function GameScreen({navigation, route}) {
   const {data, UserID} = route.params;
@@ -167,6 +167,19 @@ export function GameScreen({navigation, route}) {
     setgrid4('');
   }
 
+  function playAudio(name) {
+    var sound = new Sound(
+      name + '.mp3',
+      FileSystem.ExternalDirectoryPath + '/audios',
+      error => {
+        if (error) {
+          return;
+        }
+        sound.play();
+      },
+    );
+  }
+
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <DraxProvider>
@@ -289,28 +302,23 @@ export function GameScreen({navigation, route}) {
               draggingStyle={styles.dragging}
               dragReleasedStyle={styles.dragging}
               dragPayload={'Orange'}
-              longPressDelay={0}
-              onDragStart={() =>
-                SoundPlayer.playSoundFile('orange', 'mp3')
-              }></DraxView>
+              longPressDelay={0.5}></DraxView>
             <DraxView
               style={[styles.centeredContent, styles.draggableBox, styles.rose]}
               draggingStyle={styles.dragging}
               dragReleasedStyle={styles.dragging}
               dragPayload={'Rose'}
-              longPressDelay={0}
-              onDragStart={() =>
-                SoundPlayer.playSoundFile('rose', 'mp3')
-              }></DraxView>
+              longPressDelay={1}></DraxView>
             <DraxView
-              style={[styles.centeredContent, styles.draggableBox, styles.blue]}
+              style={[
+                styles.centeredContent,
+                styles.draggableBox,
+                styles.purple,
+              ]}
               draggingStyle={styles.dragging}
               dragReleasedStyle={styles.dragging}
               dragPayload={'Purple'}
-              longPressDelay={0}
-              onDragStart={() =>
-                SoundPlayer.playSoundFile('purple', 'mp3')
-              }></DraxView>
+              longPressDelay={0.5}></DraxView>
             <DraxView
               style={[
                 styles.centeredContent,
@@ -320,10 +328,46 @@ export function GameScreen({navigation, route}) {
               draggingStyle={styles.dragging}
               dragReleasedStyle={styles.dragging}
               dragPayload={'Yellow'}
-              longPressDelay={0}
-              onDragStart={() =>
-                SoundPlayer.playSoundFile('yellow', 'mp3')
-              }></DraxView>
+              longPressDelay={0.5}></DraxView>
+          </View>
+
+          <View style={styles.palette}>
+            <View style={[styles.audioBox, styles.orange]}>
+              <Button
+                title=""
+                color={'#FE6100'}
+                onPress={() => {
+                  playAudio('orange', 1);
+                }}
+              />
+            </View>
+            <View style={[styles.audioBox, styles.rose]}>
+              <Button
+                title=""
+                color={'#DC267F'}
+                onPress={() => {
+                  playAudio('rose', 1);
+                }}
+              />
+            </View>
+            <View style={[styles.audioBox, styles.purple]}>
+              <Button
+                title=""
+                color={'#785EF0'}
+                onPress={() => {
+                  playAudio('purple', 1);
+                }}
+              />
+            </View>
+            <View style={[styles.audioBox, styles.yellow]}>
+              <Button
+                title=""
+                color={'#FFB000'}
+                onPress={() => {
+                  playAudio('yellow', 1);
+                }}
+              />
+            </View>
           </View>
 
           <View style={{margin: 20, padding: 20}}>
@@ -410,15 +454,17 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 10,
   },
-  audioButton: {
-    width: '25%',
+  audioBox: {
+    width: 60,
+    height: 30,
     borderRadius: 10,
+    marginTop: 5,
   },
   rose: {
     color: '#DC267F',
     backgroundColor: '#DC267F',
   },
-  blue: {
+  purple: {
     color: '#785EF0',
     backgroundColor: '#785EF0',
   },

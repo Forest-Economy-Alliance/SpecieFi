@@ -14,13 +14,9 @@ export function ResultsScreen({navigation, route}) {
 
     var path = FileSystem.ExternalDirectoryPath + '/submissions/' + fileName;
 
-    FileSystem.writeFile(path, jsonString, 'utf8')
-      .then(success => {
-        alert('File written to ' + path);
-      })
-      .catch(err => {
-        console.log(err.message);
-      });
+    FileSystem.writeFile(path, jsonString, 'utf8').then(success => {
+      alert('File written to ' + path);
+    });
   }
 
   return (
@@ -34,10 +30,11 @@ export function ResultsScreen({navigation, route}) {
       <Text
         style={{
           color: '#292b2c',
-          fontFamily: 'LeckerliOne',
+          fontFamily: 'PlayfairDisplay',
           fontSize: 70,
           width: '100%',
           textAlign: 'center',
+          marginBottom: 30,
         }}>
         Specifi
       </Text>

@@ -9,27 +9,21 @@ import Dialog from 'react-native-dialog';
 export function SubmissionsScreen({navigation, route}) {
   var submissionsPaths = ['Submissions'];
 
-  FileSystem.readDir(FileSystem.ExternalDirectoryPath + '/submissions/')
-    .then(files => {
+  FileSystem.readDir(FileSystem.ExternalDirectoryPath + '/submissions/').then(
+    files => {
       for (let i = 0; i < files.length; i++) {
         submissionsPaths.push(files[i].name);
       }
-    })
-    .catch(err => {
-      console.log(err.message);
-    });
+    },
+  );
 
   function openFile(fileName) {
     FileSystem.readFile(
       FileSystem.ExternalDirectoryPath + '/submissions/' + fileName,
       'utf8',
-    )
-      .then(success => {
-        alert(success);
-      })
-      .catch(err => {
-        console.log(err.message);
-      });
+    ).then(success => {
+      alert(success);
+    });
   }
 
   const [visible, setVisible] = useState(true);
@@ -37,7 +31,6 @@ export function SubmissionsScreen({navigation, route}) {
 
   function handleAuthorize(code) {
     if (code == 2580) {
-      console.log('Authorized');
       setAuthorized(true);
       setVisible(false);
     }
