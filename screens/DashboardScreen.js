@@ -5,8 +5,6 @@ import ImagePicker from 'react-native-image-crop-picker';
 import FileSystem from 'react-native-fs';
 import DocumentPicker from 'react-native-document-picker';
 
-import Share from 'react-native-share';
-
 export function DashboardScreen() {
   const [images, setImages] = useState(null);
   const [nImages, setNImages] = useState(0);
@@ -90,7 +88,7 @@ export function DashboardScreen() {
       type: [DocumentPicker.types.allFiles],
       copyTo: 'documentDirectory',
     }).then(submissions => {
-      setAudios(submissions);
+      setSubmissions(submissions);
       for (let i = 0; i < submissions.length; i++) {
         let file_name = submissions[i].name;
 
@@ -101,7 +99,7 @@ export function DashboardScreen() {
           FileSystem.readDir(
             FileSystem.ExternalDirectoryPath + '/submissions',
           ).then(files => {
-            setNAudios(files.length);
+            setNSubmissions(files.length);
           });
         });
       }
@@ -129,7 +127,12 @@ export function DashboardScreen() {
             style={{
               margin: 5,
             }}></View>
-          <Button title="Export" color={'#ff916f'} onPress={shareImages} />
+          <Button
+            title="Export"
+            disabled={true}
+            color={'#ff916f'}
+            onPress={shareImages}
+          />
         </View>
         <Text style={styles.title}>{nImages} Image(s) Present</Text>
       </View>
@@ -146,7 +149,12 @@ export function DashboardScreen() {
             style={{
               margin: 5,
             }}></View>
-          <Button title="Export" color={'#ffca4d'} onPress={shareAudios} />
+          <Button
+            title="Export"
+            disabled={true}
+            color={'#ffca4d'}
+            onPress={shareAudios}
+          />
         </View>
         <Text style={styles.title}>{nAudios} Audio(s) Present</Text>
       </View>
@@ -167,7 +175,12 @@ export function DashboardScreen() {
             style={{
               margin: 5,
             }}></View>
-          <Button title="Export" color={'#b3a4f7'} onPress={shareSubmissions} />
+          <Button
+            title="Export"
+            disabled={true}
+            color={'#b3a4f7'}
+            onPress={shareSubmissions}
+          />
         </View>
         <Text style={styles.title}>{nSubmissions} Submission(s) Present</Text>
       </View>

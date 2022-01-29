@@ -12,7 +12,7 @@ import {DashboardScreen} from './screens/DashboardScreen';
 
 const Stack = createNativeStackNavigator();
 
-function App() {
+export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -68,5 +68,3 @@ function App() {
     </NavigationContainer>
   );
 }
-
-export default App;
