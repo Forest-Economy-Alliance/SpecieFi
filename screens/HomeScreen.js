@@ -18,7 +18,7 @@ export function HomeScreen({navigation}) {
         backgroundColor: '#f7f7f7',
       }}>
       <ImageBackground
-        source={require('../assets/images/Specifi-bg.png')}
+        source={require('../assets/images/SpecieFi-bg.png')}
         style={{width: '100%', height: '100%', flex: 1}}>
         <Text
           style={{
@@ -30,7 +30,7 @@ export function HomeScreen({navigation}) {
             marginTop: '40%',
             marginBottom: '10%',
           }}>
-          Specifi
+          SpecieFi
         </Text>
         <View
           style={{

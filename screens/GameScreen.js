@@ -22,7 +22,7 @@ export function GameScreen({navigation, route}) {
   });
 
   let images_folder_path =
-    'file:///storage/emulated/0/Android/data/com.specifi/files/images/';
+    'file:///storage/emulated/0/Android/data/com.speciefi/files/images/';
 
   let imagePaths = {
     1: images_folder_path + '1.jpg',

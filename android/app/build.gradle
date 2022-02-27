@@ -15,7 +15,7 @@ import com.android.build.OutputFile
  *   // the name of the generated asset file containing your JS bundle
  *   bundleAssetName: "index.android.bundle",
  *
- *   // the entry file for bundle generation. If none specified and
+ *   // the entry file for bundle generation. If none speciefied and
  *   // "index.android.js" exists, it will be used. Otherwise "index.js" is
  *   // default. Can be overridden with ENTRY_FILE environment variable.
  *   entryFile: "index.android.js",
@@ -131,7 +131,7 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.specifi"
+        applicationId "com.speciefi"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

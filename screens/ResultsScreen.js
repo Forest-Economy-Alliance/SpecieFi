@@ -36,7 +36,7 @@ export function ResultsScreen({navigation, route}) {
           textAlign: 'center',
           marginBottom: 30,
         }}>
-        Specifi
+        SpecieFi
       </Text>
       <View style={{padding: 10, width: '25%'}}>
         <Button

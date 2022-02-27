@@ -12,7 +12,7 @@
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
+# See the License for the speciefic language governing permissions and
 # limitations under the License.
 #
 
@@ -60,7 +60,7 @@ die () {
     exit 1
 }
 
-# OS specific support (must be 'true' or 'false').
+# OS speciefic support (must be 'true' or 'false').
 cygwin=false
 msys=false
 darwin=false
