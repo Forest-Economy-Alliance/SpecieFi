@@ -57,7 +57,8 @@ The demo video [[LINK]](https://www.mediafire.com/file/8y55346me6dz2bk/SpecieFi_
 
 - The colors are chosen so that Protanopia and deuteranopia color blind people are able to distinguish the 4 colors.
 - To promote accessibility, one can click on the rectangular boxes to hear the audio cues for every color before making their choice.
-  <img src="assets/screenshots/game_screen.jpg" width="180" height="320">
+
+<img src="assets/screenshots/game_screen.jpg" width="180" height="320">
 
 5. After completing the game, you are asked to download the results to the device.
 
