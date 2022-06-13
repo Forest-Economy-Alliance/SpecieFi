@@ -37,23 +37,23 @@ The APK for SpecieFi is hosted and maintained on Mediafire. Click on the Android
 The demo video [[LINK]](https://www.mediafire.com/file/8y55346me6dz2bk/SpecieFi_Demo.mp4/file) can be found on Mediafire alongside the demo files [[LINK]](https://www.mediafire.com/folder/a66a3ai7jaekw/demo-files).
 
 1. You are greeted by a home screen with all the necessary buttons.
-   ![](assets/screenshots/home_screen.jpg)
+   <img src="assets/screenshots/home_screen.jpg" width="180" height="320">
 
 2. You load the images (MANDATORY) and the audio cues (OPTIONAL) by navigating to the Dashboard.
-   ![](assets/screenshots/dashboard_screen.jpg)
+   <img src="assets/screenshots/dashboard_screen.jpg" width="180" height="320">
 
 3. Now, you are ready to start the game! You enter your details and then the game starts.
-   ![](assets/screenshots/details_screen.jpg)
+   <img src="assets/screenshots/details_screen.jpg" width="180" height="320">
 
 4. In the game, you are asked to drag-and-drop the 4 colored boxes to the corresponding species as shown in the pictures in the grid above.
 
 - The colors are chosen so that Protanopia and deuteranopia color blind people are able to distinguish the 4 colors.
 - To promote accessibility, one can click on the rectangular boxes to hear the audio cues for every color before making their choice.
-  ![](assets/screenshots/game_screen.jpg)
+  <img src="assets/screenshots/game_screen.jpg" width="180" height="320">
 
 5. After completing the game, you are asked to download the results to the device.
-   ![](assets/screenshots/export_screen.jpg)
+   <img src="assets/screenshots/export_screen.jpg" width="180" height="320">
 
 6. One can access all the submissions via the Submissions screen.
-   ![](assets/screenshots/submissions_screen.jpg)
-   ![](assets/screenshots/submissions.jpg)
+   <img src="assets/screenshots/submissions_screen.jpg" width="180" height="320">
+   <img src="assets/screenshots/submissions.jpg" width="180" height="320">
