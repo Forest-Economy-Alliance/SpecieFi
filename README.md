@@ -25,25 +25,33 @@ The APK for SpecieFi is hosted and maintained on Mediafire. Click on the Android
 
 1. Clone this repository from GitHub.
 2. Run the following command in the terminal:
-   - `cd SpecieFi`
-   - `npm install`
+
+- `cd SpecieFi`
+
+- `npm install`
+
 3. Follow the Environment Setup from https://reactnative.dev/docs/environment-setup.
 4. Run the following command in the terminal:
-   - `npm run android` to build the android app in debug mode with hot reload functionality.
-   - `npm run android-release` to build the android app in release mode.
+
+- `npm run android` to build the android app in debug mode with hot reload functionality.
+
+- `npm run android-release` to build the android app in release mode.
 
 ### Walkthrough
 
 The demo video [[LINK]](https://www.mediafire.com/file/8y55346me6dz2bk/SpecieFi_Demo.mp4/file) can be found on Mediafire alongside the demo files [[LINK]](https://www.mediafire.com/folder/a66a3ai7jaekw/demo-files).
 
 1. You are greeted by a home screen with all the necessary buttons.
-   <img src="assets/screenshots/home_screen.jpg" width="180" height="320">
+
+<img src="assets/screenshots/home_screen.jpg" width="180" height="320">
 
 2. You load the images (MANDATORY) and the audio cues (OPTIONAL) by navigating to the Dashboard.
-   <img src="assets/screenshots/dashboard_screen.jpg" width="180" height="320">
+
+<img src="assets/screenshots/dashboard_screen.jpg" width="180" height="320">
 
 3. Now, you are ready to start the game! You enter your details and then the game starts.
-   <img src="assets/screenshots/details_screen.jpg" width="180" height="320">
+
+<img src="assets/screenshots/details_screen.jpg" width="180" height="320">
 
 4. In the game, you are asked to drag-and-drop the 4 colored boxes to the corresponding species as shown in the pictures in the grid above.
 
@@ -52,8 +60,11 @@ The demo video [[LINK]](https://www.mediafire.com/file/8y55346me6dz2bk/SpecieFi_
   <img src="assets/screenshots/game_screen.jpg" width="180" height="320">
 
 5. After completing the game, you are asked to download the results to the device.
-   <img src="assets/screenshots/export_screen.jpg" width="180" height="320">
+
+<img src="assets/screenshots/export_screen.jpg" width="180" height="320">
 
 6. One can access all the submissions via the Submissions screen.
-   <img src="assets/screenshots/submissions_screen.jpg" width="180" height="320">
-   <img src="assets/screenshots/submissions.jpg" width="180" height="320">
+
+<img src="assets/screenshots/submissions_screen.jpg" width="180" height="320">
+
+<img src="assets/screenshots/submissions.jpg" width="180" height="320">
